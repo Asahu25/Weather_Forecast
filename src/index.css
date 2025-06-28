@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 50%, #fd79a8 100%);
+  transition: all 0.4s ease;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #1a1a2e 100%);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.app.dark-mode {
+  /* background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #1a1a2e 100%); */
+}
+
+/* Additional animated background elements */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  animation: float-bg-app 15s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+.app.dark-mode::before {
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(116, 185, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(116, 185, 255, 0.1) 0%, transparent 50%);
+}
+
+@keyframes float-bg-app {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-30px) scale(1.1); }
+}
